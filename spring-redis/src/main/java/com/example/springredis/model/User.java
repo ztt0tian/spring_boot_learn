@@ -1,38 +1,27 @@
-package com.example.springweb.model;
+package com.example.springredis.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 import java.io.Serializable;
 
-@Entity
+
+
 public class User implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    @Id
-    @GeneratedValue
     private Long id;
-    @Column(nullable = false, unique = true)
     private String userName;
-    @Column(nullable = false)
-    private String passWord;
-    @Column(nullable = false, unique = true)
+    private String password;
     private String email;
-    @Column(nullable = true, unique = true)
-    private String nickName;
-    @Column(nullable = false)
+    private String nickname;
     private String regTime;
 
     public User() {
         super();
     }
-
-    public User(String nickName, String email, String userName, String passWord, String regTime) {
+    public User(String email, String nickname, String password, String userName, String regTime) {
         super();
         this.email = email;
-        this.nickName = nickName;
-        this.passWord = passWord;
+        this.nickname = nickname;
+        this.password = password;
         this.userName = userName;
         this.regTime = regTime;
     }
@@ -53,12 +42,12 @@ public class User implements Serializable {
         this.userName = userName;
     }
 
-    public String getPassWord() {
-        return passWord;
+    public String getPassword() {
+        return password;
     }
 
-    public void setPassWord(String passWord) {
-        this.passWord = passWord;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getEmail() {
@@ -69,12 +58,12 @@ public class User implements Serializable {
         this.email = email;
     }
 
-    public String getNickName() {
-        return nickName;
+    public String getNickname() {
+        return nickname;
     }
 
-    public void setNickName(String nickName) {
-        this.nickName = nickName;
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
     }
 
     public String getRegTime() {
@@ -85,4 +74,15 @@ public class User implements Serializable {
         this.regTime = regTime;
     }
 
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", userName='" + userName + '\'' +
+                ", password='" + password + '\'' +
+                ", email='" + email + '\'' +
+                ", nickname='" + nickname + '\'' +
+                ", regTime='" + regTime + '\'' +
+                '}';
+    }
 }

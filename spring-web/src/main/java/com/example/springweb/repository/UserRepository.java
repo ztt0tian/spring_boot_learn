@@ -10,7 +10,7 @@ import java.util.List;
  * 就是可以根据方法名来自动的生成 SQL，比如findByUserName 会自动生成一个以 userName 为参数
  * 的查询方法，比如 findAlll 自动会查询表里面的所有数据，比如自动分页等等。
  */
-public interface UserRepository extends JpaRepository<User,Long> {
+public interface UserRepository extends JpaRepository<User, Long> {
     User findByUserName(String userName);
 
     User findByUserNameOrEmail(String username, String email);
